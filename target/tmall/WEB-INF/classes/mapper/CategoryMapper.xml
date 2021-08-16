@@ -3,10 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="edu.cczu.tmall.mapper.CategoryMapper">
+<mapper namespace="edu.cczu.tmall.admin.category.mapper.CategoryMapper">
 
     <!-- 查询所有记录，形成一个列表 -->
-    <select id="list" resultType="edu.cczu.tmall.domain.Category">
+    <select id="list" resultType="edu.cczu.tmall.admin.category.domain.Category">
         select id,name from category order by id desc
         <if test='start != null and count != null'>
             limit #{start},#{count}
@@ -37,7 +37,7 @@
 
     <!-- 修改分类 -->
     <!-- 根据主键字段查询出来的Category对象用于做数据回显 -->
-    <select id="selectCategoryByPrimary" resultType="edu.cczu.tmall.domain.Category">
+    <select id="selectCategoryByPrimary" resultType="edu.cczu.tmall.admin.category.domain.Category">
         select id,name from category where id=#{id}
     </select>
 
@@ -47,7 +47,7 @@
     </update>
 
     <!-- PageHelperList查询所有记录，Controller使用PageHelper完成分页 -->
-    <select id="pageHelperList" resultType="edu.cczu.tmall.domain.Category">
+    <select id="pageHelperList" resultType="edu.cczu.tmall.admin.category.domain.Category">
         select id,name from category
     </select>
 </mapper>

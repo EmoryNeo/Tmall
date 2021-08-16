@@ -24,7 +24,7 @@
     <!--MapperScannerConfigurer-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <property name="basePackage" value="edu.cczu.tmall.mapper"/>
+        <property name="basePackage" value="edu.cczu.tmall.admin.category.mapper"/>
     </bean>
 
 </beans>

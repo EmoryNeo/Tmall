@@ -8,10 +8,10 @@
     </settings>
     <typeAliases>
         <!-- type Aliases -->
-        <package name="edu.cczu.tmall.domain"/>
+        <package name="edu.cczu.tmall.admin.category.domain"/>
     </typeAliases>
     <mappers>
         <!-- mapping package -->
-        <package name="edu.cczu.tmall.mapper"/>
+        <package name="edu.cczu.tmall.admin.category.mapper"/>
     </mappers>
 </configuration>

@@ -59,7 +59,7 @@
                     <td><img height="40px" src="img/category/${category.id}.jpg"></td>
                     <td>${category.name}</td>
 
-                    <td><a href="admin_property_list?cid=${category.id}"><span class="glyphicon glyphicon-th-list"></span></a></td>
+                    <td><a href="admin_property_list.do?cid=${category.id}"><span class="glyphicon glyphicon-th-list"></span></a></td>
                     <td><a href="admin_product_list?cid=${category.id}"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
                     <td><a href="admin_category_edit.do?id=${category.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <!--
