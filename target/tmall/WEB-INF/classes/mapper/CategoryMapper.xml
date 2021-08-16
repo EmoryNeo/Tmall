@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.cczu.tmall.mapper.CategoryMapper">
+
+    <!-- 查询所有记录，形成一个列表 -->
+    <select id="list" resultType="edu.cczu.tmall.domain.Category">
+        select id,name from category order by id desc
+        <if test='start != null and count != null'>
+            limit #{start},#{count}
+        </if>
+    </select>
+
+    <!-- 查询总记录条数 -->
+    <select id="total" resultType="int">
+        select count(id) from category
+    </select>
+
+    <!-- 添加分类 -->
+    <!--
+        在categoryMapper.xml文件中新增插入分类的SQL语句
+        ps：需要加上两个属性：keyProperty=id   useGeneratedKeys=true
+        用来确保Category对象通过mybatis增加到数据库之后得到的id增长值会被设置在Category对象上。因为在保存分类图片的时候需要用到这个id
+        值，所以是必须的。
+    -->
+    <insert id="add" keyProperty="id" useGeneratedKeys="true">
+        insert into category(id,name) values(#{id},#{name})
+    </insert>
+
+    <!-- 删除分类 -->
+    <!-- 根据Browser为Controller注入的id值来删除 -->
+    <delete id="delete">
+        delete from category where id=#{id}
+    </delete>
+
+    <!-- 修改分类 -->
+    <!-- 根据主键字段查询出来的Category对象用于做数据回显 -->
+    <select id="selectCategoryByPrimary" resultType="edu.cczu.tmall.domain.Category">
+        select id,name from category where id=#{id}
+    </select>
+
+    <!-- 修改分类 -->
+    <update id="update">
+        update category set name=#{name} where id=#{id}
+    </update>
+</mapper>
