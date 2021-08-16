@@ -43,4 +43,7 @@ public interface CategoryMapper {
     Category selectCategoryByPrimary(String id);
 
     void update(Category category);
+
+    List<Category> pageHelperList();
+
 }

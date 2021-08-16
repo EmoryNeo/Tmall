@@ -189,6 +189,13 @@
       <version>${mybatis-generator.version}</version>
     </dependency>
 
+    <!-- pageHelper plugin dependency -->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>${pagehelper.version}</version>
+    </dependency>
+
     <!-- SpringMVC Conversion injection dependency -->
     <!--Jackson依赖-->
     <dependency>

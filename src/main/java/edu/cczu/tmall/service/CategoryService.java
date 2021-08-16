@@ -34,4 +34,7 @@ public interface CategoryService {
     Category queryCategoryById(String id);
 
     void update(Category category);
+
+    List<Category> pageHelperList();
+
 }

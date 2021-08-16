@@ -45,4 +45,9 @@
     <update id="update">
         update category set name=#{name} where id=#{id}
     </update>
+
+    <!-- PageHelperList查询所有记录，Controller使用PageHelper完成分页 -->
+    <select id="pageHelperList" resultType="edu.cczu.tmall.domain.Category">
+        select id,name from category
+    </select>
 </mapper>

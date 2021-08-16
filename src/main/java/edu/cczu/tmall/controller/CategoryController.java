@@ -1,5 +1,7 @@
 package edu.cczu.tmall.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import edu.cczu.tmall.domain.Category;
 import edu.cczu.tmall.service.CategoryService;
 import edu.cczu.tmall.util.ImageUtil;
@@ -43,11 +45,31 @@ public class CategoryController {
      * @param page 分页条件
      * @return  分页后的数据
      */
+//    @RequestMapping(path = "/admin_category_list.do")
+//    public ModelAndView doList(Page page){
+//        ModelAndView mv = new ModelAndView();
+//        List<Category> categories = categoryService.list(page);
+//        int total = categoryService.total();
+//        page.setTotal(total);
+//        mv.addObject("categories", categories);
+//        mv.addObject("page", page);
+//        mv.setViewName("/admin/listCategory");
+//        return mv;
+//    }
+
+    /**
+     * 采用分页插件来完成分页
+     * @param page 分页条件
+     * @return 请求转发到admin/listCategory页面(携带了分页后的数据)
+     */
     @RequestMapping(path = "/admin_category_list.do")
     public ModelAndView doList(Page page){
         ModelAndView mv = new ModelAndView();
-        List<Category> categories = categoryService.list(page);
-        int total = categoryService.total();
+        PageHelper.offsetPage(page.getStart(), page.getCount());
+        List<Category> categories = categoryService.pageHelperList();
+        int total = (int) new PageInfo<>(categories).getTotal();
+//        List<Category> categories = categoryService.list(page);
+//        int total = categoryService.total();
         page.setTotal(total);
         mv.addObject("categories", categories);
         mv.addObject("page", page);

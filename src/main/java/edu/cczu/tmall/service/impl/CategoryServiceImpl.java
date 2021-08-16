@@ -21,6 +21,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     private CategoryMapper categoryMapper;
+
     private Log logger = LogFactory.getLog(this.getClass());
 
     public void setCategoryMapper(CategoryMapper categoryMapper) {
@@ -63,5 +64,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void update(Category category) {
         categoryMapper.update(category);
+    }
+
+    @Override
+    public List<Category> pageHelperList() {
+        return categoryMapper.pageHelperList();
     }
 }
